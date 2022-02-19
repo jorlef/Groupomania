@@ -1,0 +1,9 @@
+/node_modules
+
+.env
+/config/.env
+
+/images/posts
+
+/images/profils/*
+!/images/profils/default.jpg
