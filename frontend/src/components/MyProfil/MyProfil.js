@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import { AuthContext } from "../Context/AuthContext";
 
@@ -74,13 +74,19 @@ const MyProfil = ({ dataUser, getUserProfil }) => {
       .catch((err) => console.log(err));
   };
 
+  useEffect(() => {
+    if (resMessage) {
+      setTimeout(() => setResMessage(""), 3000);
+    }
+  }, [resMessage]);
+
   return (
     <>
       {dataUser && (
         <div className="myProfil">
           <div className="myProfil__updated">{resMessage}</div>
           <h1>Mon profil</h1>
-          {dataUser.inactive && <div className="myProfil__inactive">Votre compte sera supprimé dans 30 jours</div>}
+          <div className="myProfil__inactive">{dataUser.inactive && "Votre compte sera supprimé dans 30 jours"}</div>
           <label htmlFor="myProfil__prenom">Prenom</label>
           <input type="text" name="first_name" id="myProfil__prenom" className="myProfil__prenom" value={startUpdate ? majProfil.first_name : dataUser.first_name} disabled={startUpdate ? false : true} onChange={(e) => handleUpdate(e)} />
           <label htmlFor="myProfil__nom">Nom</label>
@@ -89,10 +95,14 @@ const MyProfil = ({ dataUser, getUserProfil }) => {
           <input type="text" name="email" id="myProfil__email" className="myProfil__email" value={startUpdate ? majProfil.email : dataUser.email} disabled={startUpdate ? false : true} onChange={(e) => handleUpdate(e)} />
 
           <img src={dataUser.profil_picture} id="myProfil__picture" alt={"profil de " + dataUser.first_name + " " + dataUser.last_name} />
-          <label htmlFor="myProfil__profilpic"></label>
+          <label htmlFor="myProfil__profilpic">Image de profil</label>
           <input type="file" name="profil_picture" id="myProfil__profilpic" onChange={(e) => sendPicture(e)} disabled={startUpdate ? false : true} />
-          <button onClick={startUpdate ? sendUpdate : updateProfil}>Mettre à jour</button>
-          <button onClick={deleteAccount}>Supprimer mon compte</button>
+          <button className="myProfil__update" onClick={startUpdate ? sendUpdate : updateProfil}>
+            {startUpdate ? "Finaliser" : "Mettre à jour"}
+          </button>
+          <button className="myProfil__delete" onClick={deleteAccount}>
+            Supprimer mon compte
+          </button>
         </div>
       )}
     </>
