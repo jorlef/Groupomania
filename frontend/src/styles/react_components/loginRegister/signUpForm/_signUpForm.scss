@@ -78,3 +78,15 @@
     grid-row: 11;
   }
 }
+
+@media screen and (max-width: 992px) {
+  .signup {
+    &__form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+  }
+}

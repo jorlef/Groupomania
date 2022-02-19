@@ -8,9 +8,19 @@
   box-shadow: 5px 5px 5px 3px grey;
 
   &__data {
+    position: relative;
     padding: 20px;
     background-color: lighten($background-color-primary, 3);
     border-radius: 25px 25px 0 0;
+  }
+
+  &__delete {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
   }
 
   &__comment {
@@ -21,12 +31,14 @@
   }
 
   &__title {
+    width: 80%;
     &::first-letter {
       text-transform: uppercase;
     }
   }
 
   &__content {
+    margin-top: 15px;
     &::first-letter {
       text-transform: uppercase;
     }
@@ -34,11 +46,37 @@
 
   &__img {
     max-width: 100%;
+    margin-top: 15px;
   }
 
-  &__avatar {
-    max-width: 50px;
-    border-radius: 50%;
-    overflow: hidden;
+  &__stamp {
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    padding-top: 30px;
+    display: grid;
+    grid-template:
+      "a b"
+      "a c"
+      "a d";
+    & > :nth-child(1) {
+      grid-area: a;
+    }
+    & > :nth-child(2) {
+      grid-area: b;
+    }
+    & > :nth-child(3) {
+      grid-area: c;
+    }
+    & > :nth-child(4) {
+      grid-area: d;
+    }
+
+    & img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
   }
 }

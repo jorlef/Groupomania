@@ -14,14 +14,34 @@
   }
 
   &__nav {
+    height: 50px;
     margin: 15px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    & > :nth-child(1):hover {
+      text-decoration: underline;
+    }
+    & > :nth-child(2) button:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__logout button {
+    background: none;
+    border: none;
+    cursor: pointer;
   }
 }
 
 @media screen and (max-width: 992px) {
   .header {
     height: 150px;
-
     flex-direction: column;
+    &__nav {
+      margin: 10px;
+     
+    }
   }
 }
