@@ -25,7 +25,7 @@ const Post = ({ post, handlePosts }) => {
     <div className="post" id={post.id}>
       <div className="post__data">
         {(isAdmin || userId === post.User.uuid) && (
-          <button className="post__delete" onClick={delPost}>
+          <button className="post__delete" onClick={delPost} aria-label="supprimer ce post" title="Supprimer le post">
             <i className="fa-solid fa-circle-xmark"></i>
           </button>
         )}
@@ -36,9 +36,9 @@ const Post = ({ post, handlePosts }) => {
           <p className="post__content">{post.content}</p>
           <img src={post.attachment} className="post__img" alt="" />
           <div className="post__stamp">
+            <img src={post.User.profil_picture} className="post__avatar" alt="" />
             <span>
               Créé par {post.User.first_name} {post.User.last_name}
-              <img src={post.User.profil_picture} className="post__avatar" alt="" />
             </span>
             <br />
             {post.updatedAt === post.createdAt ? (
