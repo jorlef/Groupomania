@@ -50,7 +50,7 @@ function App() {
   };
   return (
     <Router>
-      <AuthContext.Provider value={{ /* reload, setReload,*/ userId, setUserId, isAdmin, setIsAdmin, token, setToken, isMyTokenValid, isConnected, setIsConnected }}>
+      <AuthContext.Provider value={{ userId, setUserId, isAdmin, setIsAdmin, token, setToken, isMyTokenValid, isConnected, setIsConnected }}>
         <Header />
         <Routes>
           <Route
