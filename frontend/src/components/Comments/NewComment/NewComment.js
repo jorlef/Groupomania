@@ -41,7 +41,10 @@ const NewComment = ({ post, handlePosts, onePost, retrievePost }) => {
     if (newComment.comments === "") {
       setActiveButton(false);
     }
-  }, [newComment]);
+    if (resMessage) {
+      setTimeout(() => setResMessage(""), 3000);
+    }
+  }, [newComment, resMessage]);
 
   return (
     <div className="newComment">
