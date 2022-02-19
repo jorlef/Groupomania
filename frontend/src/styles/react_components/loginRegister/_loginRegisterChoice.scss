@@ -1,0 +1,59 @@
+.connection {
+  min-height: 335px;
+
+  border-radius: 25px;
+
+  background-color: $color-primary;
+
+  &__container {
+    min-height: 335px;
+
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(9, 1fr);
+
+    > :nth-child(1) {
+      grid-column: 1/3;
+      grid-row: 4/10;
+    }
+
+  }
+
+  &__choice {
+    min-width: 130px;
+    margin: 0 30px;
+    padding: 0;
+
+    li {
+      min-width: 130px;
+      margin: 15px 0;
+      padding: 10px 10px;
+
+      border-radius: 25px;
+      border: solid darken($color-primary, 20);
+
+      text-align: center;
+      list-style: none;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  &__active-btn {
+    background-color: darken($color-primary, 20);
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .connection {
+    &__container {
+      flex-direction: column;
+    }
+    &__choice {
+      display: flex;
+      flex-direction: row;
+      gap: 15px;
+    }
+  }
+}

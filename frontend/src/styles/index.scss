@@ -1,0 +1,24 @@
+@import "./utils/variables";
+
+// @import './vendors/';
+
+@import "./base/normalize";
+@import "./base/settings";
+
+// @import './css_components/';
+@import "./css_components/links";
+@import "./css_components/main";
+
+@import "./react_components/header/header";
+@import "./react_components/loginRegister/loginRegisterChoice";
+@import "./react_components/loginRegister/signUpForm/signUpForm";
+@import "./react_components/loginRegister/loginForm/loginForm";
+@import "./react_components/Posts/post/post";
+@import "./react_components/Posts/newPost/newPost";
+
+// @import './pages/home';
+// @import './pages/detailPost';
+// @import './pages/login';
+// @import './pages/userProfil';
+
+// @import './themes/';

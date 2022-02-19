@@ -1,0 +1,60 @@
+.newPost {
+  margin: 20px 0;
+  padding: 15px 10px;
+
+  background-color: $background-color-primary;
+  border: 2px solid darken($background-color-primary, 20);
+  border-radius: 25px;
+  box-shadow: 5px 5px 5px 3px grey;
+  &__new {
+    font-size: large;
+    font-weight: bold;
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  &__success {
+    text-align: center;
+  }
+  &__form {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(5, auto);
+    grid-gap: 5px;
+
+    & > :nth-child(1) {
+      grid-column: 2;
+      grid-row: 1;
+      text-align: right;
+      padding-right: 10px;
+    }
+    & > :nth-child(2) {
+      grid-column: 3/7;
+      grid-row: 1;
+    }
+    & > :nth-child(3) {
+      grid-column: 1;
+      grid-row: 2;
+      text-align: right;
+      padding-right: 10px;
+    }
+    & > :nth-child(4) {
+      grid-column: 2/9;
+      grid-row: 2/4;
+    }
+    & > :nth-child(5) {
+      grid-column: 1;
+      grid-row: 4;
+      text-align: right;
+      padding-right: 10px;
+    }
+    & > :nth-child(6) {
+      grid-column: 3/7;
+      grid-row: 4;
+    }
+    & > :nth-child(7) {
+      grid-column: 3/7;
+      grid-row: 5;
+    }
+  }
+}
