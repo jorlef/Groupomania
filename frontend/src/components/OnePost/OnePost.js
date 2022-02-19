@@ -39,24 +39,37 @@ const OnePost = () => {
   return (
     post && (
       <div className="onePost">
-        {(isAdmin || userId === post.User.uuid) && <button onClick={delPost}>X</button>}
+        <div className="onePost__delete">
+          {(isAdmin || userId === post.User.uuid) && (
+            <button onClick={delPost} className="onePost__delbutton" aria-label="delete this post" title="Delete this post">
+              <i className="fa-solid fa-circle-xmark"></i>
+            </button>
+          )}
+        </div>
         <h2 className="onePost__title">{post.title}</h2>
-        <div>
+        <div className="onePost__data">
           <p className="onePost__content">{post.content}</p>
           <img src={post.attachment} className="onePost__img" alt="" />
           <div className="onePost__stamp">
-            <span>
+            <img src={post.User.profil_picture} className="onePost__avatar" alt="" />
+            <div>
               Créé par {post.User.first_name} {post.User.last_name}
-              <img src={post.User.profil_picture} className="onePost__avatar" alt="" />
-            </span>
-            <br />
-            <span>
-              Créé le <DayJS format="DD-MM-YY / HH:mm:ss">{post.createdAt}</DayJS>
-            </span>
-            <br />
-            <span>
-              Modifié le <DayJS format="DD-MM-YY / HH:mm:ss">{post.updatedAt}</DayJS>
-            </span>
+            </div>
+            {post.createdAt === post.updatedAt ? (
+              <div>
+                Créé le <DayJS format="DD-MM-YY / HH:mm:ss">{post.createdAt}</DayJS>
+              </div>
+            ) : (
+              <>
+                <div>
+                  Créé le <DayJS format="DD-MM-YY / HH:mm:ss">{post.createdAt}</DayJS>
+                </div>
+
+                <div>
+                  Modifié le <DayJS format="DD-MM-YY / HH:mm:ss">{post.updatedAt}</DayJS>
+                </div>
+              </>
+            )}
           </div>
         </div>
         <Comments comments={post.Comments} post={post} onePost={true} retrievePost={retrievePost} />
