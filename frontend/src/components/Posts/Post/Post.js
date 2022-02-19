@@ -41,13 +41,21 @@ const Post = ({ post, handlePosts }) => {
               <img src={post.User.profil_picture} className="post__avatar" alt="" />
             </span>
             <br />
-            <span>
-              Créé le <DayJS format="DD-MM-YY / HH:mm:ss">{post.createdAt}</DayJS>
-            </span>
-            <br />
-            <span>
-              Modifié le <DayJS format="DD-MM-YY / HH:mm:ss">{post.updatedAt}</DayJS>
-            </span>
+            {post.updatedAt === post.createdAt ? (
+              <span>
+                Créé le <DayJS format="DD-MM-YY / HH:mm:ss">{post.createdAt}</DayJS>
+              </span>
+            ) : (
+              <>
+                <span>
+                  Créé le <DayJS format="DD-MM-YY / HH:mm:ss">{post.createdAt}</DayJS>
+                </span>
+                <br />
+                <span>
+                  Modifié le <DayJS format="DD-MM-YY / HH:mm:ss">{post.updatedAt}</DayJS>
+                </span>
+              </>
+            )}
           </div>
         </div>
       </div>
