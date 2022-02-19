@@ -53,7 +53,7 @@ const NewPost = ({ handlePosts }) => {
       setActiveButton(false);
     }
     if (resMessage) {
-      setTimeout(() => setResMessage(""), 5000);
+      setTimeout(() => setResMessage(""), 3000);
     }
   }, [newPost, resMessage]);
 
