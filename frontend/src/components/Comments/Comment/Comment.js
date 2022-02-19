@@ -5,13 +5,7 @@ import { deleteComment } from "../../../api/comments";
 
 import { AuthContext } from "../../Context/AuthContext";
 
-const Comment = ({ comment, handlePosts, onePost, retrievePost /*usestate, setusestate*/ }) => {
-  // test usecontext
-  // const { reload, setReload } = useContext(AuthContext);
-  // useEffect(() => {
-  //   console.log(reload);
-  //   setReload(false)
-  // }, [reload]);
+const Comment = ({ comment, handlePosts, onePost, retrievePost }) => {
   const { isAdmin, token, userId } = useContext(AuthContext);
 
   const delComment = () => {
@@ -42,10 +36,6 @@ const Comment = ({ comment, handlePosts, onePost, retrievePost /*usestate, setus
       <p>
         <DayJS format="DD-MM-YY / HH:mm:ss">{{ comment }.comment.createdAt}</DayJS>
       </p>
-      {/* {test up state} */}
-      {/* <button onClick={() => setReload(true)}></button> */}
-      {/* {test context} */}
-      {/* <button onClick={() => setusestate(usestate + 1)}></button> */}
     </div>
   );
 };
