@@ -25,16 +25,16 @@ const Comment = ({ comment, handlePosts, onePost, retrievePost }) => {
   return (
     <div className="comment__card">
       {(isAdmin || userId === comment.User.uuid) && (
-        <button className="comment__delete" onClick={delComment}>
+        <button className="comment__delete" onClick={delComment} aria-label="supprimer commentaire" title="Supprimer le commentaire">
           <i className="fa-solid fa-circle-xmark"></i>
         </button>
       )}
-      <h3>{{ comment }.comment.comments}</h3>
+      <p>{{ comment }.comment.comments}</p>
       <p>
         Commenté par {{ comment }.comment.User.first_name} {{ comment }.comment.User.last_name}
       </p>
       <p>
-        <DayJS format="DD-MM-YY / HH:mm:ss">{{ comment }.comment.createdAt}</DayJS>
+        le <DayJS format="DD-MM-YY / HH:mm:ss">{{ comment }.comment.createdAt}</DayJS>
       </p>
     </div>
   );
