@@ -27,19 +27,20 @@ const SignUpForm = ({ setSignUpChoice, setLoginChoice, setSuccessMessage }) => {
 
     if (password !== checkPassword) {
       checkPasswordError.innerHTML = "mots de passe différents";
+    } else {
+      signup = { first_name: firstName, last_name: lastName, email, password };
+      authSignUp(signup)
+        .then((res) => {
+          setFormSubmit(true);
+        })
+        .catch((err) => {
+          let errors = err.response.data.errors;
+          firstNameError.innerHTML = errors.first_name ? errors.first_name : null;
+          lastNameError.innerHTML = errors.last_name ? errors.last_name : null;
+          emailError.innerHTML = errors.email ? errors.email : null;
+          passwordError.innerHTML = errors.password ? errors.password : null;
+        });
     }
-    signup = { first_name: firstName, last_name: lastName, email, password };
-    authSignUp(signup)
-      .then((res) => {
-        setFormSubmit(true);
-      })
-      .catch((err) => {
-        let errors = err.response.data.errors;
-        firstNameError.innerHTML = errors.first_name ? errors.first_name : null;
-        lastNameError.innerHTML = errors.last_name ? errors.last_name : null;
-        emailError.innerHTML = errors.email ? errors.email : null;
-        passwordError.innerHTML = errors.password ? errors.password : null;
-      });
   };
 
   useEffect(() => {
