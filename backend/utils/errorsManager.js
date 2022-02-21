@@ -1,4 +1,4 @@
-module.exports.signupErrors = (err, password) => {
+module.exports.signupErrors = (err) => {
     let errors = {};
     let errorsLength = err.errors.length;
   
@@ -8,8 +8,6 @@ module.exports.signupErrors = (err, password) => {
       if (err.errors[i].message.includes("email" && "unique")) errors.email = "le compte existe déjà";
       if (err.errors[i].message.includes("email" && "formatted")) errors.email = "email non valide";
     }
-  
-    if (password == false) errors.password = "8 à 32 caractères";
   
     return errors;
   };

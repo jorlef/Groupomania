@@ -22,7 +22,7 @@ exports.signup = async (req, res) => {
               return res.status(201).json({ newUser });
             })
             .catch((err) => {
-              const errors = signupErrors(err, password);
+              const errors = signupErrors(err);
               return res.status(500).json({ errors });
             });
         })
